@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+  <h1>Cart!</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Sub-total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <button ng-click"removeTea (tea, qty")>remove</button>
+      <tr ng-repeat="thing in bag">
+        <td ng-repeat="(thing, tea) in bag">
+          {{thing.tea.name}}
+        </td>
+        <td>
+          {{thing.qty}}
+      </td>
+      </tr>
+    </tbody>
+  </table>
+
+</html>

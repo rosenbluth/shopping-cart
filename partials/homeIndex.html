@@ -1,0 +1,47 @@
+<h1>Welcome to MEAN Tea!</h1>
+
+<h4>search by category:
+  <select ng-model="selectedCategory">
+    <option ng-repeat="category in categories">{{category}}</option>
+  </select>
+</h4>
+<a href="#/cart"><button>checkout</button></a>
+<table>
+  <thead>
+    <tr>
+      <th>Tea</th>
+      <th>Information</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr ng-repeat="tea in teas" | filter: categorySearch | filter:  >
+      <td>
+        <img ng-src="{{tea.imageUrl}}" alt="">
+      </td>
+      <td>
+        <h3>{{ tea.name }}
+          <span>
+            Quantity:
+            <select ng-model="quantity">
+              <option ng-repeat="qty in [1,2,3,4,5,6,7,8,9,10]">{{qty}}</option>
+            </select>
+            <button type="button" class="btn btn-warning" ng-click="addTeaToBag(tea, quantity)">Add to Bag!!!</button>
+          </span>
+        </h3>
+        <p>
+          <strong>Price:</strong> {{ tea.price/100 | currency }}
+        </p>
+        <p>
+          <div class="caffeine-section">
+            <h4>Caffeine</h4>
+            mg/serving: {{ tea.caffeineScale }}
+            <caffeine-meter caffeinemg="tea.caffeineScale" id="tea._id"></caffeine-meter>
+          </div>
+        </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- | filter: categorySearch | filter: nameSearch | orderBy: priceSort -->
